@@ -1,0 +1,72 @@
+---
+layout: default
+title: The Case of Trying to Recognise Characters From Colour Images
+---
+<h5>Technical Article</h5>
+<h1>The Case of Trying to Recognise Characters From Colour Images</h1>
+<p class="synopsis">
+  In my capstone project for the Data Science Immersive, I tried to build a model for recognition of English alphabets and
+  numerical digits with computer generated characters based on a variety of fonts, but the accuracy of the test was about
+  40 percent, way below 90 percent accuracy on training set. Does it mean that the model was overfitted?
+</p>
+<p>
+
+</p>
+<h3>How I could generate the training and testing set?</h3>
+<p>
+  Although there are available dataset for downloading for this project, I will explain here on how this dataset can
+  be generated and why I will have the training and testing set to be generated this way.
+</p>
+<p>
+  In reality, each characters may not appear equally frequent, depending on the words that are displayed on the signboard.
+  However, since the signboards are man-made (not really naturally occuring), they are made with the use of typesetting,
+  which means that the characters can be generated from the computer using different fonts. For this reason the training
+  set do not need to be pictures of the characters that appeared on signboards, but rather the chracters generated with
+  the computer using a variety of fonts. Technically I can just open a Word Document application and type in the characters; then
+  by changing the font and then exporting each characters as an image, I will be able to generate the required dataset. In
+  this way I will be able to get a well balanced dataset.
+</p>
+<h3>Building the model</h3>
+<p>
+  Since both the training set and the test set are images and I'm doing recognition, the key approach for selecting the
+  model will be to let the machine be able to "see" the image in parts first (that is to deconstruct the image.) and then
+  put the pieces together to determine what the character in the image is. The only model that can do so is Convolutional
+  Neural Networks (cNN), and I used a combination of Convolutional Layers and Pooling Layers to help the machine "see" the images
+  in many parts with fully connected layers which will bring the different parts together in order for the machine to
+  determine the character that appeared in the image.
+</p>
+<p>
+  However, before the training set are being sent for training in the cNN, I will want to do some processing of the images
+  so as to speed up the training process and yet have sufficient definition (the word "definition" is as in "High Definition TV")
+  for the machine to be able to recognise the characters. The implication of the processing of the training images is that
+  all the input images to the model will have to be processed to the following specifications: (1) The resolution (amount of
+  definition) has to be 32 by 32 pixels and (2) the images have to be monochrome (since the training images are in black
+  and white and color is not the factor in character recognition.)
+</p>
+<h3>Evaluation</h3>
+<p>
+  So the model is built and tested agaist the test set and the result is that the accuracy with the training set reaches about 90%
+  after 60 iterations while the accuracy on the test set only reaches about 40%.
+</p>
+<p>
+  So it happens that the great difference in features between the training set and test set can contribute to the differences in
+  the accuracy of the model. Firstly, the appearance of colour in the test set along with the differing contrast between the characters
+  and the background brought about the potential difficulty for the machine in recognising the character, especially if the images
+  are converted to greyscale instead of distinct black and white. Whereas the training set are in black and white and have a very
+  sharp contrast, allowing the machine to recognise the characters more easily. Secondly, the model cannot fully recognise some capital and smaller letters (such as "S" and "s"). When the capital letter and small letter are put together
+  they look fairly similar, especially when the characters are isolated from the images and the size cannot be determined by the character
+  itself.
+</p>
+<p>
+  There are serveral other limitations of the model in recognising characters. One of which is that it cannot recognise rotated characters.
+  This is especially when it cannot distingush between rotated characters or another character (among the famous set of characters that can cause
+  the confusion are "E", "M", "W" and "3"). Another limitation of the model is there are certain classes of fonts that the model cannot be recognised
+  as they are not included in the training set. These classes of fonts are cursive script and outlined fonts. It's important to include outlined fonts in
+  the next iteration of building the model as such fonts can appear especially when the letters are made of neon light tubes.
+</p>
+<p>
+  So what are the things that can be done to improve the model to the point that it can be used to build the abovementioned application? In addition to
+  considering adding new fonts to the dataset, it's important to develop the image preprocessing component which can turn coloured characters to a black
+  and white image with sufficient contrast without distorting the character and to resize the image to the standard resolution for input to the model.
+  In this way there is a greater chance that the machine can recognise the character much better with the model.
+</p>
