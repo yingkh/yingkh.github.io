@@ -12,11 +12,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a, p {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: inherit;
+  text-decoration: none;
 }
 
 .header {
     padding: 0px;
+    height: 230px;
     text-align: center;
     background: white;
 }
@@ -53,13 +56,6 @@ a, p {
     padding: 20px;
 }
 
-.footer {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-    margin-top: 20px;
-}
-
 .synopsis{
   font-style: italic;
 }
@@ -69,13 +65,25 @@ img.center{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    height: 50%;
 }
 
-
-
 .footer{
+  display: grid;
   padding: 10px;
   margin-top: 10px;
-  background-color: #ddd;
+  background-color: #333;
+  color: white;
+  grid-template-columns: 25% 75%;
+  grid-row: 1;
+  grid-column-gap: 5px;
+}
+
+.footer-left {
+  text-align: center;
+}
+
+.o-svgicon{
+  height: 1rem;
+  width: 1rem;
+  color: inherit;
 }
