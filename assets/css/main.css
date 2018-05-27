@@ -2,52 +2,79 @@
     box-sizing: border-box;
 }
 
+html{
+  height: 100%;
+}
+
 body {
-    padding: 10px;
+    display: grid;
+    grid-template-rows: auto 250px 1fr auto;
+    max-width: 1280px;
+    min-height: 100%;
+    margin: auto;
     background: #ddd;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
-a, p {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+p {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  color: inherit;
+}
+
+a {
   color: inherit;
   text-decoration: none;
 }
 
 .header {
     padding: 0px;
-    height: 230px;
+    height: 250px;
     text-align: center;
     background: white;
 }
 
-.topnav {
+img.imgheader{
+  display: block;
+  margin: auto;
+}
+
+ui.topnav {
+    grid-row: 1 / 2;
     overflow: hidden;
-    background-color: #999;
+    list-style-type: none;
+    background-color: #fff;
 }
 
-.topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 10px;
-    text-decoration: none;
+ui.topnav li{
+  font-family: "Titillium Web", sans-serif;
+  display: inline-block;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px 15px;
 }
 
-.topnav a:hover {
+ui.topnav li a{
+  display: inline-block;
+  text-decoration: none;
+}
+
+ui.topnav li.link-item:hover {
     background-color: black;
     color: white;
+}
+
+.right-align{
+  float: right;
 }
 
 .card {
     background-color: white;
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px 0px;
 }
 
 .cardimg {
@@ -62,17 +89,22 @@ a, p {
 
 img.center{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
 }
 
-.footer{
+.container{
+  grid-row: 3 / 4;
+}
+
+footer{
+  grid-row: 4 / 5;
+  background-color: #333;
+  color: white;
+}
+
+.footer-container{
   display: grid;
   padding: 10px;
   margin-top: 10px;
-  background-color: #333;
-  color: white;
   grid-template-columns: 25% 75%;
   grid-row: 1;
   grid-column-gap: 5px;

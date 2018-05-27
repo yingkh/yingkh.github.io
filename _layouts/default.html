@@ -3,22 +3,23 @@
 		<head>
 			<title>{{ page.title }}</title>
 			<!-- link to main stylesheet -->
+			<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400, 700" rel="stylesheet">
 			<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 			<link href="/assets/css/fontawesome-all.css" rel="stylesheet">
 		</head>
 		<body>
+			<ui class="topnav">
+	  		<li>yingkh.github.io</li>
+				<li class="link-item right-align"><a href="/about">About</a></li>
+			</ui>
 			<div class="header">
-				<a href="/"><img class="center" src="/assets/img/web_cover.png"></img></a>
-			</div>
-			<div class="topnav">
-	  		<a href="/">Home</a>
-	    	<a href="/about">About</a>
+				<a href="/"><img class="imgheader" src="/assets/img/page_cover.svg"></img></a>
 			</div>
 			<div class="container">
 				{{ content }}
 			</div><!-- /.container -->
 			<footer>
-				<div class="footer">
+				<div class="footer-container">
 					<div class="footer-left">
 						<img src="/assets/img/eInfinity_public.svg" height="150" width="150" style="background-color: white"/>
 					</div>
@@ -39,7 +40,6 @@
 						<p>2018 &copy; Ying Ka Ho. All Rights Reserved.</p>
 					</div>
 				</div>
-
 			</footer>
 		</body>
 	</html>
