@@ -1,0 +1,21 @@
+---
+layout: default
+title: Contact
+---
+<div class="card">
+  <h2>Contact</h2>
+  <p>Feel free to drop me a message to get in touch.</p>
+
+  <form action="https://getsimpleform.com/messages?form_api_token=6dc284ae330eac2f309103718e1cc7d0" method="post" style="box-sizing: border-box; display: block;">
+    <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+    <input type="hidden" name="redirect_to" value="/contact/thankyou" />
+    <!-- all your input fields here.... -->
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="Name" id="txt-name" required/>
+    <label for='address'>E-mail address</label>
+    <input type='email' name="address" placeholder="E-mail address" id="txt-address"  required/>
+    <label for="message">Message</label>
+    <textarea name="message" placeholder="Message" id="txt-message" required></textarea>
+    <input type="submit" value="Send" />
+  </form>
+</div>
